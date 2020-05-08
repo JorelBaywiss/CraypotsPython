@@ -1,6 +1,7 @@
 from time import sleep
 from random import randint
 from os import system
+from time import sleep
 #craypots
 #Starting resources
 boats=1
@@ -13,13 +14,6 @@ weather=True
 #if Weather is True, it is good weather. Otherwise it is bad.
 #Turn Structure is defined here.
 def turn():
-    global weather
-    #generating weather
-    weather_num=randint(1,6)
-    if weather_num==1 or weather_num==2 or weather_num==3:
-        weather=True
-    elif weather_num!=4:
-        weather=False
     system("cls")
     print("TURN %s\nYou Have:\n%s Boat(s)\n%s pots\n%s money"%(turn_num,boats,pots,money))
     buy()
@@ -68,6 +62,16 @@ def buy():
                 break
             else:
                 print("Please enter Y or N.")            
+#The craypots phase (Money coming in, weather etc.) Unfinished*
+def fishing():
+    global weather
+    #generating weather
+    weather_num=randint(1,6)
+    if weather_num==1 or weather_num==2 or weather_num==3:
+        weather=True
+    elif weather_num!=4:
+        weather==False
+    #Note: Weather when the die roll is 4 is exactly the same
 #Making the Turns actually occur
 for i in range(12):
     turn_num=turn_num+1 
