@@ -13,17 +13,16 @@ weather=True
 #if Weather is True, it is good weather. Otherwise it is bad.
 #turn is defined here
 def turn():
+    global weather
     #generating weather
     weather_num=randint(1,6)
     if weather_num==1 or weather_num==2 or weather_num==3:
         weather=True
     elif weather_num!=4:
-        weather==False
+        weather=False
     system("cls")
     print("TURN %s\nYou Have:\n%s Boat(s)\n%s pots\n%s money"%(turn_num,boats,pots,money))
     buy()
-    
-
 def buy():
     global money
     global pots
@@ -52,6 +51,6 @@ def buy():
 for i in range(12):
     turn_num=turn_num+1 
     turn()
-input("")
+system("cls")
     
     
