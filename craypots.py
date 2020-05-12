@@ -29,7 +29,6 @@ def buy():
         buy_list=input("What would you like to buy?\nPress b to buy a boat.\nPress p to buy pots.\nPress enter to confirm your selection.\n")
         if buy_list.lower()=="p":
             system('cls')
-            #Not finished
             while 1:
                 try:
                     amount_of_pots=int(input("Please put in the amount of pots you would like to buy:\n"))
@@ -101,10 +100,10 @@ def fishing():
     #Good weather+inshore=4$, bad weather=7$
     if weather:
         print("The weather was good. You gained %s money."%(pots_in*4+pots_out*9))
-        money+=pots_in*2+pots_out*5
+        money+=pots_in*4+pots_out*9
     elif not weather:
         print("The weather was bad.\nYou lost %s pots. You gained %s money."%(pots_out,pots_in*7))
-        money+=pots_in*4
+        money+=pots_in*7
         pots-=pots_out
     sleep(5)
 
