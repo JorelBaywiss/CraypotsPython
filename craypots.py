@@ -17,6 +17,7 @@ def turn():
     system("cls")
     print("TURN %s\nYou Have:\n%s Boat(s)\n%s pots\n%s money"%(turn_num,boats,pots,money))
     buy()
+    fishing()
 #The Buy Phase Of The Turn
 def buy():
     global money
@@ -65,6 +66,9 @@ def buy():
 #The craypots phase (Money coming in, weather etc.) Unfinished*
 def fishing():
     global weather
+    global pots
+    global money
+    global boats
     #generating weather
     #Note: Weather when the die roll is 4 is exactly the same
     weather_num=randint(1,6)
@@ -86,13 +90,24 @@ def fishing():
                 break
             except:
                 print("Please enter an integer.")
-        if pots_in+pots_out<=pots:
+        if pots_in+pots_out<=pots and pots_in+pots_out<=boats*10:
             break
-        else:
+        elif not pots_in+pots_out<=pots:
             print("You do not have enough pots to put %s pots in and %s pots out. You only have %s pots.\nPlease enter your pots again."%(pots_in,pots_out,pots))
+        else:
+            print("You do not have enough boats to put %s pots in and %s pots out. You only have %s boats.\nPlease enter your pots again.")%(pots_in,pots_out,boats)
     #Good weather+offshore=5$, Bad weather+offshore=lose pot(-5)
     #Good weather+inshore=2$, bad weather=4$
-    if weather and where_pots:
+    if weather:
+        print("The weather was good. You gained %s money."%(pots_in*2+pots_out*5))
+        money+=pots_in*2+pots_out*5
+    elif not weather:
+        print("The weather was bad.\nYou lost %s pots. You gained %s money."%(pots_out,pots_in*4))
+        money+=pots_in*4
+        pots-=pots_out
+    
+
+    
 #Making the Turns actually occur
 for i in range(12):
     turn_num=turn_num+1 
