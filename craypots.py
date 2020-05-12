@@ -62,7 +62,8 @@ def buy():
                 cont==True
                 break
             else:
-                print("Please enter Y or N.")            
+                print("Please enter Y or N.")
+    system('cls')            
 #The craypots phase (Money coming in, weather etc.) Unfinished*
 def fishing():
     global weather
@@ -95,7 +96,7 @@ def fishing():
         elif not pots_in+pots_out<=pots:
             print("You do not have enough pots to put %s pots in and %s pots out. You only have %s pots.\nPlease enter your pots again."%(pots_in,pots_out,pots))
         else:
-            print("You do not have enough boats to put %s pots in and %s pots out. You only have %s boats.\nPlease enter your pots again.")%(pots_in,pots_out,boats)
+            print("You do not have enough boats to put %s pots in and %s pots out. You only have %s boats.\nPlease enter your pots again."%(pots_in,pots_out,boats))
     #Good weather+offshore=5$, Bad weather+offshore=lose pot(-5)
     #Good weather+inshore=2$, bad weather=4$
     if weather:
