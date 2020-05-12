@@ -66,12 +66,33 @@ def buy():
 def fishing():
     global weather
     #generating weather
+    #Note: Weather when the die roll is 4 is exactly the same
     weather_num=randint(1,6)
     if weather_num==1 or weather_num==2 or weather_num==3:
         weather=True
     elif weather_num!=4:
-        weather==False
-    #Note: Weather when the die roll is 4 is exactly the same
+        weather=False
+    #if where_pots==True... The pots are in
+    while 1:
+        while 1:
+            try:
+                pots_in=int(input("How many pots would you like to put inshore?"))
+                break
+            except:
+                print("Please enter an integer.")
+        while 1:
+            try:
+                pots_out=int(input("How many pots would you like to put out of the shore?"))
+                break
+            except:
+                print("Please enter an integer.")
+        if pots_in+pots_out<=pots:
+            break
+        else:
+            print("You do not have enough pots to put %s pots in and %s pots out. You only have %s pots.\nPlease enter your pots again."%(pots_in,pots_out,pots))
+    #Good weather+offshore=5$, Bad weather+offshore=lose pot(-5)
+    #Good weather+inshore=2$, bad weather=4$
+    if weather and where_pots:
 #Making the Turns actually occur
 for i in range(12):
     turn_num=turn_num+1 
