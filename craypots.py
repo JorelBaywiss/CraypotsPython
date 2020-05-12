@@ -97,16 +97,16 @@ def fishing():
             print("You do not have enough pots to put %s pots in and %s pots out. You only have %s pots.\nPlease enter your pots again."%(pots_in,pots_out,pots))
         else:
             print("You do not have enough boats to put %s pots in and %s pots out. You only have %s boats.\nPlease enter your pots again."%(pots_in,pots_out,boats))
-    #Good weather+offshore=5$, Bad weather+offshore=lose pot(-5)
-    #Good weather+inshore=2$, bad weather=4$
+    #Good weather+offshore=9$, Bad weather+offshore=lose pot(-10)
+    #Good weather+inshore=4$, bad weather=7$
     if weather:
-        print("The weather was good. You gained %s money."%(pots_in*2+pots_out*5))
+        print("The weather was good. You gained %s money."%(pots_in*4+pots_out*9))
         money+=pots_in*2+pots_out*5
     elif not weather:
-        print("The weather was bad.\nYou lost %s pots. You gained %s money."%(pots_out,pots_in*4))
+        print("The weather was bad.\nYou lost %s pots. You gained %s money."%(pots_out,pots_in*7))
         money+=pots_in*4
         pots-=pots_out
-    
+    sleep(5)
 
     
 #Making the Turns actually occur
