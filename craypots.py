@@ -43,7 +43,7 @@ def buy():
         elif buy_list.lower()=='b':
             while 1:
                 try:
-                    amount_of_boats=int(input("Please enter the amount of boats that you would like to buy:"))
+                    amount_of_boats=int(input("Please enter the amount of boats that you would like to buy:\n"))
                     if amount_of_boats*50>money:
                         print("You do not have enough money.")
                     else:
@@ -53,7 +53,7 @@ def buy():
             money-=50*amount_of_boats
             boats+=amount_of_boats
         while 1:
-            cont=input("Would you like to continue buying? (Y/N)")
+            cont=input("Would you like to continue buying? (Y/N)\n")
             if cont.lower()=="y":
                 cont=False
                 break
@@ -80,13 +80,13 @@ def fishing():
     while 1:
         while 1:
             try:
-                pots_in=int(input("How many pots would you like to put inshore?"))
+                pots_in=int(input("How many pots would you like to put inshore?\n"))
                 break
             except:
                 print("Please enter an integer.")
         while 1:
             try:
-                pots_out=int(input("How many pots would you like to put out of the shore?"))
+                pots_out=int(input("How many pots would you like to put out of the shore?\n"))
                 break
             except:
                 print("Please enter an integer.")
